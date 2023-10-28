@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632047904649",
+    "project_id": "hridam-proj1",
+    "storage_bucket": "hridam-proj1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632047904649:android:fba9dfda19eb88e56a6358",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgEa0kHHxRuwffukU08Eb69lFASi7yZmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

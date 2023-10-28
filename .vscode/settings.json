@@ -1,0 +1,9 @@
+{
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "window.titleBarStyle": "custom",
+
+  "workbench.colorTheme": "Material Dark Theme"
+}
