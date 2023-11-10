@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:developer' as devtools show log;
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   int currentPageIndex = 0;
+  final uid = FirebaseAuth.instance.currentUser?.uid ?? "";
   final thumbWidth = 100;
   final thumbHeight = 150;
   List<VideoInfo> _videos = <VideoInfo>[];
@@ -44,11 +46,11 @@ class _AppViewState extends State<AppView> {
 
   @override
   void initState() {
-    FirebaseProvider.listenToVideos((newVideos) {
-      setState(() {
-        _videos = newVideos;
-      });
-    });
+    // FirebaseProvider.listenToVideos((newVideos) {
+    //   setState(() {
+    //     _videos = newVideos;
+    //   });
+    // });
     EncodingProvider.config.enableStatisticsCallback(statisticsCallback);
     super.initState();
   }
@@ -75,8 +77,11 @@ class _AppViewState extends State<AppView> {
   Future<String> _uploadFile(filePath, folderName) async {
     final file = File(filePath);
     final basename = p.basename(filePath);
-    final ref =
-        FirebaseStorage.instance.ref().child(folderName).child(basename);
+    final ref = FirebaseStorage.instance
+        .ref()
+        .child(uid)
+        .child(folderName)
+        .child(basename);
     await ref.putFile(file);
     final videoUrl = await ref.getDownloadURL();
     return videoUrl;
@@ -186,7 +191,7 @@ class _AppViewState extends State<AppView> {
       _progress = 0.0;
     });
 
-    await FirebaseProvider.saveVideo(videoInfo);
+    await FirebaseProvider.saveVideo(videoInfo, uid);
 
     setState(() {
       _processPhase = '';
@@ -269,9 +274,8 @@ class _AppViewState extends State<AppView> {
               );
             });
       },
-      future: FirebaseProvider.fillVideos().then(
+      future: FirebaseProvider.fillVideos(uid).then(
         (value) {
-          print("Hey: $value");
           _videos = value;
         },
       ),

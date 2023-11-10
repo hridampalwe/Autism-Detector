@@ -1,29 +1,42 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/constants/routes.dart';
+import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/views/login_view.dart';
 import 'package:flutter_application_1/views/register_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import 'screens/welcome_page.dart';
 import 'views/app_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
 
-  runApp(MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      useMaterial3: true,
-    ),
-    routes: {
-      appviewRoute: (context) => const AppView(),
-      loginRoute: (context) => const LoginView(),
-      registerRoute: (context) => const RegisterView(),
-    },
-    home: const HomePage(),
-  ));
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Sign In Sign Up Ui',
+      theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        scaffoldBackgroundColor: kBackgroundColor,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      routes: {
+        appviewRoute: (context) => const AppView(),
+        loginRoute: (context) => const WelcomePage(),
+        registerRoute: (context) => const WelcomePage(),
+      },
+      home: const HomePage(),
+    );
+  }
 }
 
 class HomePage extends StatelessWidget {
@@ -40,7 +53,7 @@ class HomePage extends StatelessWidget {
           case ConnectionState.done:
             final user = FirebaseAuth.instance.currentUser;
             if (user == null) {
-              return const LoginView();
+              return const WelcomePage();
             } else {
               return const AppView();
             }

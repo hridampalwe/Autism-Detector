@@ -2,8 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/video_info.dart';
 
 class FirebaseProvider {
-  static saveVideo(VideoInfo video) async {
-    await FirebaseFirestore.instance.collection('videos').doc().set({
+  static saveVideo(VideoInfo video, String uid) async {
+    await FirebaseFirestore.instance
+        .collection('videos')
+        .doc('users')
+        .collection(uid)
+        .doc()
+        .set({
       'videoUrl': video.videoUrl,
       'thumbUrl': video.thumbUrl,
       'coverUrl': video.coverUrl,
@@ -25,10 +30,14 @@ class FirebaseProvider {
   //   callback(videos);
   // }
 
-  static Future<List<VideoInfo>> fillVideos() async {
+  static Future<List<VideoInfo>> fillVideos(String uid) async {
     List<VideoInfo> videos = <VideoInfo>[];
 
-    final data = await FirebaseFirestore.instance.collection("videos").get();
+    final data = await FirebaseFirestore.instance
+        .collection("videos")
+        .doc('users')
+        .collection(uid)
+        .get();
     for (var docSnapshot in data.docs) {
       print('${docSnapshot.id} => ${docSnapshot.data()}');
       final data = docSnapshot.data();
@@ -44,23 +53,23 @@ class FirebaseProvider {
     return videos;
   }
 
-  static listenToVideos(callback) async {
-    List videos = <VideoInfo>[];
-    FirebaseFirestore.instance.collection("videos").snapshots().listen((event) {
-      for (var doc in event.docs) {
-        final data = doc.data();
-        videos.add(VideoInfo(
-          videoUrl: data['videoUrl'],
-          thumbUrl: data['thumbUrl'],
-          coverUrl: data['coverUrl'],
-          aspectRatio: data['aspectRatio'],
-          videoName: data['videoName'],
-          uploadedAt: data['uploadedAt'],
-        ));
-      }
-    });
-    callback(videos);
-  }
+  // static listenToVideos(callback) async {
+  //   List videos = <VideoInfo>[];
+  //   FirebaseFirestore.instance.collection("videos").snapshots().listen((event) {
+  //     for (var doc in event.docs) {
+  //       final data = doc.data();
+  //       videos.add(VideoInfo(
+  //         videoUrl: data['videoUrl'],
+  //         thumbUrl: data['thumbUrl'],
+  //         coverUrl: data['coverUrl'],
+  //         aspectRatio: data['aspectRatio'],
+  //         videoName: data['videoName'],
+  //         uploadedAt: data['uploadedAt'],
+  //       ));
+  //     }
+  //   });
+  //   callback(videos);
+  // }
 
   // static mapQueryToVideoInfo(QuerySnapshot qs) {
   //   return qs.docs.map((DocumentSnapshot ds) {
