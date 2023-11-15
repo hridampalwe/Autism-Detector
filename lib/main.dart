@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/firebase_options.dart';
-import 'package:flutter_application_1/views/login_view.dart';
-import 'package:flutter_application_1/views/register_view.dart';
+// import 'package:flutter_application_1/views/login_view.dart';
+// import 'package:flutter_application_1/views/register_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/welcome_page.dart';
