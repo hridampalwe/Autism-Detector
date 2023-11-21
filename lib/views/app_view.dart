@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/record_audio.dart';
 import 'package:flutter_application_1/views/video_view.dart';
 
+import '../widgets/appbar.dart';
+
 /// Flutter code sample for [NavigationBar].
 
 // class AppView extends StatelessWidget {
@@ -22,10 +24,11 @@ class AppView extends StatefulWidget {
 
 class _AppView extends State<AppView> {
   int currentPageIndex = 0;
-  final widgets = [const VideoView(), const RecorderView()];
+  final widgets = [const VideoView(), const RecordList()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: buildAppBar(context),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -36,18 +39,13 @@ class _AppView extends State<AppView> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            selectedIcon: Icon(Icons.video_camera_back_outlined),
+            icon: Icon(Icons.video_camera_back),
+            label: 'Videos',
           ),
           NavigationDestination(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.school),
-            icon: Icon(Icons.school_outlined),
-            label: 'School',
+            icon: Icon(Icons.audiotrack_outlined),
+            label: 'Audios',
           ),
         ],
       ),

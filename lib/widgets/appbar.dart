@@ -6,7 +6,8 @@ enum MenuActions { logout }
 
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
-    title: const Text("Main View"),
+    title: const Text("Home"),
+    leading: const Icon(Icons.home),
     actions: [
       PopupMenuButton<MenuActions>(
         onSelected: (value) async {

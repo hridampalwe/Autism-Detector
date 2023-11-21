@@ -5,7 +5,6 @@ import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 // import 'package:flutter_application_1/views/login_view.dart';
 // import 'package:flutter_application_1/views/register_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/welcome_page.dart';
 import 'views/app_view.dart';
@@ -23,11 +22,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Sign In Sign Up Ui',
+      // theme: ThemeData(
+      //   textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+      //   scaffoldBackgroundColor: kBackgroundColor,
+      //   // primarySwatch: Colors.blue,
+      //   visualDensity: VisualDensity.adaptivePlatformDensity,
+      // ),
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-        scaffoldBackgroundColor: kBackgroundColor,
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorSchemeSeed: Colors.green,
       ),
       routes: {
         appviewRoute: (context) => const AppView(),

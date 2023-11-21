@@ -6,7 +6,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:developer' as devtools show log;
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/encode/encode.dart';
-import 'package:flutter_application_1/widgets/appbar.dart';
 import 'package:flutter_ffmpeg/statistics.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,6 +14,8 @@ import '../encode/firebase_provider.dart';
 import '../models/video_info.dart';
 import 'package:path/path.dart' as p;
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../widgets/video_player.dart';
 
 class VideoView extends StatefulWidget {
   const VideoView({super.key});
@@ -219,7 +220,7 @@ class _VideoView extends State<VideoView> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Text("done");
+                        return VideoApp(videoSource: video.videoUrl);
                       },
                     ),
                   );
@@ -317,15 +318,15 @@ class _VideoView extends State<VideoView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppBar(context),
-        body: Center(child: _processing ? _getProgressBar() : _getListView()),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _takeVideo,
-          child: _processing
-              ? const CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                )
-              : const Icon(Icons.add),
-        ));
+      body: Center(child: _processing ? _getProgressBar() : _getListView()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _takeVideo,
+        child: _processing
+            ? const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              )
+            : const Icon(Icons.add),
+      ),
+    );
   }
 }

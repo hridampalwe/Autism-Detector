@@ -108,29 +108,25 @@ class _RecorderState extends State<Recorder> with AudioRecorderMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _buildRecordStopControl(),
-                const SizedBox(width: 20),
-                _buildPauseResumeControl(),
-                const SizedBox(width: 20),
-                _buildText(),
-              ],
-            ),
-            if (_amplitude != null) ...[
-              const SizedBox(height: 40),
-              Text('Current: ${_amplitude?.current ?? 0.0}'),
-              Text('Max: ${_amplitude?.max ?? 0.0}'),
-            ],
+          children: <Widget>[
+            _buildRecordStopControl(),
+            const SizedBox(width: 20),
+            _buildPauseResumeControl(),
+            const SizedBox(width: 20),
+            _buildText(),
           ],
         ),
-      ),
+        if (_amplitude != null) ...[
+          const SizedBox(height: 40),
+          Text('Current: ${_amplitude?.current ?? 0.0}'),
+          Text('Max: ${_amplitude?.max ?? 0.0}'),
+        ],
+      ],
     );
   }
 
@@ -148,11 +144,11 @@ class _RecorderState extends State<Recorder> with AudioRecorderMixin {
     late Color color;
 
     if (_recordState != RecordState.stop) {
-      icon = const Icon(Icons.stop, color: Colors.red, size: 30);
+      icon = const Icon(Icons.stop, size: 30);
       color = Colors.red.withOpacity(0.1);
     } else {
       final theme = Theme.of(context);
-      icon = Icon(Icons.mic, color: theme.primaryColor, size: 30);
+      icon = const Icon(Icons.mic, size: 30);
       color = theme.primaryColor.withOpacity(0.1);
     }
 
@@ -178,11 +174,11 @@ class _RecorderState extends State<Recorder> with AudioRecorderMixin {
     late Color color;
 
     if (_recordState == RecordState.record) {
-      icon = const Icon(Icons.pause, color: Colors.red, size: 30);
+      icon = const Icon(Icons.pause, size: 30);
       color = Colors.red.withOpacity(0.1);
     } else {
       final theme = Theme.of(context);
-      icon = const Icon(Icons.play_arrow, color: Colors.red, size: 30);
+      icon = const Icon(Icons.play_arrow, size: 30);
       color = theme.primaryColor.withOpacity(0.1);
     }
 
@@ -213,7 +209,7 @@ class _RecorderState extends State<Recorder> with AudioRecorderMixin {
 
     return Text(
       '$minutes : $seconds',
-      style: const TextStyle(color: Colors.red),
+      // style: const TextStyle(color: Colors.red),
     );
   }
 

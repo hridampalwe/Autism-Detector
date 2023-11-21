@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/models/audio_info.dart';
 import '../models/video_info.dart';
 
 class FirebaseProvider {
@@ -18,17 +19,18 @@ class FirebaseProvider {
     });
   }
 
-  // static listenToVideos(callback) async {
-  //   final ref =
-  //       FirebaseFirestore.instance.collection("videos").doc().withConverter(
-  //             fromFirestore: VideoInfo.fromFirestore,
-  //             toFirestore: (VideoInfo city, _) => city.toFirestore(),
-  //           );
-  //   final docSnap = await ref.get();
-  //   final videos = docSnap.data();
-  //   devtools.log(videos.toString());
-  //   callback(videos);
-  // }
+  static saveAudio(AudioInfo audioInfo, String uid) async {
+    await FirebaseFirestore.instance
+        .collection('audios')
+        .doc('users')
+        .collection(uid)
+        .doc()
+        .set({
+      'audioUrl': audioInfo.audioUrl,
+      'uploadedAt': audioInfo.uploadedAt,
+      'audioName': audioInfo.audioName,
+    });
+  }
 
   static Future<List<VideoInfo>> fillVideos(String uid) async {
     List<VideoInfo> videos = <VideoInfo>[];
@@ -51,6 +53,26 @@ class FirebaseProvider {
       ));
     }
     return videos;
+  }
+
+  static Future<List<AudioInfo>> fillAudios(String uid) async {
+    List<AudioInfo> audios = <AudioInfo>[];
+
+    final data = await FirebaseFirestore.instance
+        .collection("audios")
+        .doc('users')
+        .collection(uid)
+        .get();
+    for (var docSnapshot in data.docs) {
+      print('${docSnapshot.id} => ${docSnapshot.data()}');
+      final data = docSnapshot.data();
+      audios.add(AudioInfo(
+        audioUrl: data['audioUrl'],
+        audioName: data['audioName'],
+        uploadedAt: data['uploadedAt'],
+      ));
+    }
+    return audios;
   }
 
   // static listenToVideos(callback) async {

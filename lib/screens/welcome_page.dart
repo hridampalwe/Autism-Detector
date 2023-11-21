@@ -31,17 +31,17 @@ class WelcomePage extends StatelessWidget {
                       height: 20,
                     ),
                     const Text(
-                      "Enterprise team\ncollaboration.",
+                      "ASD \n Companion App",
                       style: kHeadline,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: const Text(
-                        "Bring together your files, your tools, project and people.Including a new mobile and desktop application.",
+                        "Application for doctor assitance and diagonistic of Autism Specturm Disorder patients.",
                         style: kBodyText,
                         textAlign: TextAlign.center,
                       ),
