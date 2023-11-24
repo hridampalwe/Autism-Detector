@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        // backgroundColor: kBackgroundColor,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
@@ -46,7 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
           },
           icon: const Image(
             width: 24,
-            color: Colors.white,
+            color: Colors.black,
             image: Svg('assets/images/back_arrow.svg'),
           ),
         ),

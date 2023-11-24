@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constants.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 // import 'package:flutter_application_1/views/login_view.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       // ),
       theme: ThemeData(
         useMaterial3: true,
-        brightness: Brightness.dark,
+        // brightness: Brightness.dark,
         colorSchemeSeed: Colors.green,
       ),
       routes: {

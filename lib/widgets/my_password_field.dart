@@ -19,7 +19,7 @@ class MyPasswordField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextField(
         style: kBodyText.copyWith(
-          color: Colors.white,
+          color: Colors.black,
         ),
         controller: password,
         obscureText: isPasswordVisible,
@@ -50,7 +50,7 @@ class MyPasswordField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.white,
+              color: Colors.greenAccent,
               width: 1,
             ),
             borderRadius: BorderRadius.circular(18),

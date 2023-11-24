@@ -1,0 +1,342 @@
+{
+  "id": "123",
+  "type": "navigable",
+  "rules": [
+    {
+      "type": "conditional",
+      "triggerStepIdentifier": {
+        "id": "15"
+      },
+      "values": {
+        "Yes": "16",
+        "No": "17"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "stepIdentifier": {
+        "id": "1"
+      },
+      "type": "intro",
+      "title": "The Childhood Autism Spectrum Test (CAST)",
+      "text": "Please select appropriate response for your child.",
+      "buttonText": "Start"
+    },
+    {
+      "stepIdentifier": {
+        "id": "2"
+      },
+      "type": "question",
+      "title": "Name of the child?",
+      "text": "Please enter the name of the child",
+      "answerFormat": {
+        "type": "text"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "3"
+      },
+      "type": "question",
+      "title": "Age of the child?",
+      "answerFormat": {
+        "type": "integer",
+        "defaultValue": 25,
+        "hint": "Please enter your child age in months"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "4"
+      },
+      "type": "question",
+      "title": "Sex of the child?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Male",
+            "value": "Male"
+          },
+          {
+            "text": "Female",
+            "value": "Female"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "5"
+      },
+      "type": "question",
+      "title": " Does s/he join in playing games with other children easily?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "6"
+      },
+      "type": "question",
+      "title": "Does s/he come up to you spontaneously for a chat?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "7"
+      },
+      "type": "question",
+      "title": "Does s/he enjoy sports?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "8"
+      },
+      "type": "question",
+      "title": "Is it important to him/her to fit in with the peer group?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "9"
+      },
+      "type": "question",
+      "title": "Does s/he appear to notice unusual details that others miss?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "10"
+      },
+      "type": "question",
+      "title": "Does s/he tend to take things literally?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "11"
+      },
+      "type": "question",
+      "title": "When s/he was 3 years old, did s/he spend a lot of time pretending (e.g., play-acting being a superhero, or holding teddy’s tea parties)?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "12"
+      },
+      "type": "question",
+      "title": "Does s/he like to do things over and over again, in the same way all the time?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "13"
+      },
+      "type": "question",
+      "title": "Does s/he find it easy to interact with other children?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "14"
+      },
+      "type": "question",
+      "title": "Can s/he keep a two-way conversation going?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "15"
+      },
+      "type": "question",
+      "title": "Have teachers/health visitors ever expressed any concerns about his/her development?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "16"
+      },
+      "type": "question",
+      "title": "Teacher's concerns",
+      "text": "Please enter any concern that teacher may have expressed",
+      "answerFormat": {
+        "type": "text"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "17"
+      },
+      "type": "question",
+      "title": "Known Special Needs",
+      "answerFormat": {
+        "type": "multiple",
+        "textChoices": [
+          {
+            "text": "Language Delay",
+            "value": "Language Delay"
+          },
+          {
+            "text": "Hyperactivity/Attention Deficit Disorder (ADHD)",
+            "value": "Hyperactivity/Attention Deficit Disorder (ADHD)"
+          },
+          {
+            "text": "Hearing or visual difficulties",
+            "value": "Hearing or visual difficulties"
+          },
+          {
+            "text": "Autism Spectrum Condition, incl. Asperger’s Syndrome",
+            "value": "Autism Spectrum Condition, incl. Asperger’s Syndrome"
+          },
+          {
+            "text": "A physical disability",
+            "value": "A physical disability"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "30"
+      },
+      "type": "completion",
+      "text": "Thanks for taking the survey, we will contact you soon!",
+      "title": "Done!",
+      "buttonText": "Submit survey"
+    }
+  ]
+}

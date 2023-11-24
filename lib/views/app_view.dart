@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/record_audio.dart';
+// import 'package:flutter_application_1/views/survey_view.dart';
 import 'package:flutter_application_1/views/video_view.dart';
 
 import '../widgets/appbar.dart';
+import 'survey_view.dart';
 
 /// Flutter code sample for [NavigationBar].
 
@@ -24,7 +26,7 @@ class AppView extends StatefulWidget {
 
 class _AppView extends State<AppView> {
   int currentPageIndex = 0;
-  final widgets = [const VideoView(), const RecordList()];
+  final widgets = [const VideoView(), const RecordList(), const QuestionView()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +48,10 @@ class _AppView extends State<AppView> {
           NavigationDestination(
             icon: Icon(Icons.audiotrack_outlined),
             label: 'Audios',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.forum_outlined),
+            label: 'Survey',
           ),
         ],
       ),

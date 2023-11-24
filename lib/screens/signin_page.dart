@@ -36,7 +36,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        // backgroundColor: kBackgroundColor,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
@@ -44,7 +44,7 @@ class _SignInPageState extends State<SignInPage> {
           },
           icon: const Image(
             width: 24,
-            color: Colors.white,
+            color: Colors.black,
             image: Svg('assets/images/back_arrow.svg'),
           ),
         ),
@@ -116,7 +116,7 @@ class _SignInPageState extends State<SignInPage> {
                           child: Text(
                             'Register',
                             style: kBodyText.copyWith(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         )
